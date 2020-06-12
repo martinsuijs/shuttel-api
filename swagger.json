@@ -1,0 +1,61 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "Shuttel Discovery API",
+      "version": "1.0.0",
+      "title": "Shuttel Discovery API",
+      "contact": {
+        "email": "shuttel@full-orbit.com"
+      }
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Export",
+        "description": "API to export tableau workbooks"
+      }
+    ],
+    "paths": {
+      "/api/v1/export": {
+        "parameters": [
+          {
+            "name": "wb",
+            "in": "query",
+            "required": true,
+            "description": "Name of the workbook to be exported",
+            "type": "string"
+          },
+          {
+            "name": "org",
+            "in": "query",
+            "required": true,
+            "description": "Name of the organisation",
+            "type": "string"
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "required": true,
+            "description": "Month to be exported. Format is myyyy. Data of multiple months can be exported by entering multiple months comma seperated",
+            "type": "string"
+          }
+        ],
+          "get": {
+          "tags": [
+            "Export"
+          ],
+          "summary": "Returns a pdf-document of csv-file depending on the workbook",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    }
+  }
+  
